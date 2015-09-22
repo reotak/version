@@ -4,9 +4,15 @@
 ■HEADのリビジョンを取得する
  git refv-parse HEAD
 
+■HEADのリビジョンを取得する（コメントつき）
+git log --oneline | head -1
+
 ■現在のブランチ名を取得する
  git rev-parse --abbrev-ref HEAD
 
-
 ■コマンド
-gcc -DGIT_BRANCH=`git rev-parse --abbrev-ref HEAD` -DGIT_REVISION=`git rev-parse HEAD` -DGIT_MODIFICATIONS=\""`git diff --stat --name-only | awk -F\n -v ORS=','  '{print}' | sed -e 's/,$//' `"\" sample_main.c
+GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+GIT_REVISION=\"`git log --oneline | head -1`\"
+GIT_MODIFICATIONS=\"`git diff --stat --name-only | awk -F\n -v ORS=','  '{print}' | sed -e 's/,$//' `\"
+
+gcc -DGIT_BRANCH="$GIT_BRANCH"  -DGIT_REVISION="$GIT_REVISION" -DGIT_MODIFICATIONS="$GIT_MODIFICATIONS" sample_main.c

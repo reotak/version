@@ -20,7 +20,7 @@ int main(void) {
 #endif
 
 #if defined(GIT_MODIFICATIONS)
-    printf("GIT_MODIFICATIONS:%s\n", TO_STRING(GIT_MODIFICATIONS));
+    printf("GIT_MODIFICATIONS: %s\n", TO_STRING(GIT_MODIFICATIONS));
 #endif
 
     return 0;
