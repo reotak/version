@@ -1,0 +1,10 @@
+■変更済みファイルを取得する
+ git diff --stat --name-only
+
+■HEADのリビジョンを取得する
+ git refv-parse HEAD
+
+■現在のブランチ名を取得する
+ git rev-parse --abbrev-ref HEAD
+
+
